@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     "comment",
     {
       comment: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       userId: {
