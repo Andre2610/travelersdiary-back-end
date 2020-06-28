@@ -15,8 +15,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  user.associate = function (models) {
+  post.associate = function (models) {
     // associations can be defined here
+    post.belongsTo(models.trip);
+    post.hasMany(models.picture);
+    post.belongsToMany(models.user, {
+      through: "likes",
+      foreignKey: "postId",
+    });
+    post.belongsToMany(models.user, {
+      through: "comments",
+      foreignKey: "postId",
+    });
   };
   return post;
 };

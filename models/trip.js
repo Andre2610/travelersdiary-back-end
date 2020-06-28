@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  user.associate = function (models) {
+  trip.associate = function (models) {
     // associations can be defined here
+    trip.belongsTo(models.user);
+    trip.hasMany(models.post);
   };
   return trip;
 };
