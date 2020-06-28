@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       userId: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
           model: "users",
           key: "id",
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
       },
       postId: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
           model: "posts",
           key: "id",
@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
   );
   like.associate = function (models) {
     // associations can be defined here
-    like.belongsToMany(models.user);
-    like.belongsToMany(models.post);
+    like.belongsTo(models.user);
+    like.belongsTo(models.post);
   };
   return like;
 };
