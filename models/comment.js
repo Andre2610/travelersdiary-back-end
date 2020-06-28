@@ -4,11 +4,11 @@ module.exports = (sequelize, DataTypes) => {
     "comment",
     {
       comment: {
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       userId: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
           model: "users",
           key: "id",
@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
       },
       postId: {
-        type: Sequelize.INTEGER,
+        type: DataTypes.INTEGER,
         references: {
           model: "posts",
           key: "id",
@@ -30,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
   );
   comment.associate = function (models) {
     // associations can be defined here
-    comment.belongsToMany(models.user);
-    comment.belongsToMany(models.post);
+    comment.belongsTo(models.user);
+    comment.belongsTo(models.post);
   };
   return comment;
 };
