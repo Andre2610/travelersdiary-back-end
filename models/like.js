@@ -28,8 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {}
   );
-  user.associate = function (models) {
+  like.associate = function (models) {
     // associations can be defined here
+    like.belongsToMany(models.user);
+    like.belongsToMany(models.post);
   };
   return like;
 };
