@@ -16,8 +16,11 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      geotag: {
-        type: Sequelize.STRING,
+      latitude: {
+        type: Sequelize.FLOAT,
+      },
+      longitude: {
+        type: Sequelize.FLOAT,
       },
       createdAt: {
         allowNull: false,
