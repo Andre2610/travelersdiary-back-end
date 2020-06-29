@@ -18,8 +18,8 @@ router.post("/signup", async (req, res, next) => {
       const newUser = await User.create({
         firstName,
         lastName,
+        email,
         password: hashedPassword,
-        address,
         title,
         about,
       });
