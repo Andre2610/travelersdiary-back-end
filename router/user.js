@@ -5,6 +5,21 @@ const User = require("../models").user;
 const authMiddleware = require("../auth/middleware");
 const bcrypt = require("bcrypt");
 
+// GET all users profile
+router.get("/", async (req, res, next) => {
+  console.log("do i get here");
+  try {
+    const getUser = await User.findAll();
+    if (!getUser) {
+      res.status(404).send("User not found");
+    } else {
+      res.json(getUser);
+    }
+  } catch (e) {
+    next(e);
+  }
+});
+
 // GET user profile
 router.get("/:userId", async (req, res, next) => {
   try {
@@ -14,6 +29,22 @@ router.get("/:userId", async (req, res, next) => {
       res.status(404).send("User not found");
     } else {
       res.json(getUser);
+    }
+  } catch (e) {
+    next(e);
+  }
+});
+// PATCH edit user profile
+router.patch("/:userId", async (req, res, next) => {
+  try {
+    const id = parseInt(req.params.userId);
+    const getUserToUpdate = await User.findByPk(id);
+
+    if (!getUserToUpdate) {
+      res.status(404).send("User not found");
+    } else {
+      const updatedUser = await getUserToUpdate.update(req.body);
+      res.json(updatedUser);
     }
   } catch (e) {
     next(e);
