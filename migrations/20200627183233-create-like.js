@@ -9,7 +9,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       like: {
-        type: Sequelize.BOOLEAN,
+        type: DataTypes.BOOLEAN,
         allowNull: false,
       },
       userId: {

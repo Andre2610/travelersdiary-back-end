@@ -9,11 +9,11 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       startDate: {
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
         allowNull: false,
       },
       endDate: {
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
       },
       createdAt: {
         allowNull: false,
