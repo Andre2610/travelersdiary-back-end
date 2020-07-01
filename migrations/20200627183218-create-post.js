@@ -9,18 +9,18 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       title: {
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       content: {
-        type: DataTypes.TEXT,
+        type: Sequelize.TEXT,
         allowNull: false,
       },
       latitude: {
-        type: DataTypes.FLOAT,
+        type: Sequelize.FLOAT,
       },
       longitude: {
-        type: DataTypes.FLOAT,
+        type: Sequelize.FLOAT,
       },
       createdAt: {
         allowNull: false,

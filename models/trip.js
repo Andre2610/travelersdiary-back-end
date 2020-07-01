@@ -3,12 +3,16 @@ module.exports = (sequelize, DataTypes) => {
   const trip = sequelize.define(
     "trip",
     {
+      tripTitle: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
       startDate: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       endDate: {
-        type: DataTypes.DATE,
+        type: DataTypes.STRING,
       },
     },
     {}
