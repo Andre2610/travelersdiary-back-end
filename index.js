@@ -1,7 +1,8 @@
+require("dotenv").config();
 const express = require("express");
 const userRouter = require("./router/user");
 const authRouter = require("./router/auth");
-// const productRouter = require("./router/product");
+const tripRouter = require("./router/trip");
 // const categoryRouter = require("./router/category");
 // const ordersRouter = require("./router/order");
 const authMiddleware = require("./auth/middleware");
@@ -14,7 +15,7 @@ app.use(cors());
 app.use(jsonParser);
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
-// app.use("/products", productRouter);
+app.use("/trips", tripRouter);
 // app.use("/category", categoryRouter);
 // app.use("/orders", ordersRouter);
 app.listen(port, () => console.log("Listening to port", port));

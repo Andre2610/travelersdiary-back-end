@@ -12,7 +12,8 @@ module.exports = {
             Nulla veniam labore fugiat ullamco velit aliqua adipisicing culpa exercitation dolor. Laboris pariatur 
             et labore sunt deserunt commodo eiusmod anim consequat ad ad elit. Deserunt Lorem nostrud aute Lorem. 
             Excepteur ea anim commodo nostrud officia anim laboris tempor exercitation.`,
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -27,7 +28,8 @@ module.exports = {
             esse est aliquip dolor velit. Sint commodo officia esse cupidatat eu consectetur sit sunt aute minim 
             veniam non. Exercitation consectetur dolor non dolore magna dolore quis. Et reprehenderit qui velit 
             cupidatat adipisicing cupidatat.`,
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -36,7 +38,8 @@ module.exports = {
           title: "Nostrud in mollit pariatur aute.",
           content:
             "Consectetur nisi consequat nostrud eiusmod officia officia voluptate sit quis. Labore voluptate in eu sunt dolor irure labore quis qui sit do exercitation culpa. Enim aliquip ad eiusmod qui ipsum.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 3,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -45,7 +48,8 @@ module.exports = {
           title:
             "Nulla labore labore ea deserunt occaecat ex elit proident Lorem.",
           content: "Ea ut aliquip in est officia sunt proident aliqua.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -54,7 +58,8 @@ module.exports = {
           title: "Est reprehenderit duis incididunt minim est aute.",
           content:
             "Proident officia laboris ea in occaecat exercitation sint aliquip in velit in. Non eu exercitation nulla anim ex cupidatat excepteur. Proident tempor nisi sit Lorem cillum id mollit quis irure fugiat proident dolor qui.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 5,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -67,7 +72,8 @@ module.exports = {
         Culpa anim enim aute culpa pariatur officia amet duis aute quis velit do nostrud. Ea esse id fugiat exercitation nisi excepteur ex qui sunt incididunt do esse enim. Veniam esse do elit aute duis sit voluptate nisi. Quis ut est cillum qui labore.
 
         Labore pariatur quis exercitation minim id id commodo deserunt nisi sunt. Non excepteur sit id fugiat nulla et duis consequat. Et Lorem fugiat ullamco do qui Lorem.`,
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 3,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -77,7 +83,8 @@ module.exports = {
             "Nostrud laborum eiusmod reprehenderit enim dolor consectetur ea aliquip.",
           content:
             "Ipsum pariatur duis anim officia esse Lorem ullamco cupidatat sint do.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 7,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -87,7 +94,8 @@ module.exports = {
             "Sint eiusmod id duis velit duis reprehenderit voluptate voluptate ut aliqua pariatur et.",
           content:
             "Excepteur dolore exercitation laborum ea. Deserunt voluptate laboris pariatur ipsum aliquip quis labore qui non incididunt proident. Ullamco culpa ex ipsum duis excepteur culpa aute eiusmod non eiusmod proident id consectetur. Do cillum occaecat ex pariatur minim anim ad quis laboris.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 8,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -99,7 +107,8 @@ module.exports = {
                     Nulla veniam labore fugiat ullamco velit aliqua adipisicing culpa exercitation dolor. Laboris pariatur
                     et labore sunt deserunt commodo eiusmod anim consequat ad ad elit. Deserunt Lorem nostrud aute Lorem.
                     Excepteur ea anim commodo nostrud officia anim laboris tempor exercitation.`,
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -114,7 +123,8 @@ module.exports = {
                     esse est aliquip dolor velit. Sint commodo officia esse cupidatat eu consectetur sit sunt aute minim
                     veniam non. Exercitation consectetur dolor non dolore magna dolore quis. Et reprehenderit qui velit
                     cupidatat adipisicing cupidatat.`,
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -123,7 +133,8 @@ module.exports = {
           title: "Nostrud in mollit pariatur aute.",
           content:
             "Consectetur nisi consequat nostrud eiusmod officia officia voluptate sit quis. Labore voluptate in eu sunt dolor irure labore quis qui sit do exercitation culpa. Enim aliquip ad eiusmod qui ipsum.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 3,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -132,7 +143,8 @@ module.exports = {
           title:
             "Nulla labore labore ea deserunt occaecat ex elit proident Lorem.",
           content: "Ea ut aliquip in est officia sunt proident aliqua.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 4,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -141,7 +153,8 @@ module.exports = {
           title: "Est reprehenderit duis incididunt minim est aute.",
           content:
             "Proident officia laboris ea in occaecat exercitation sint aliquip in velit in. Non eu exercitation nulla anim ex cupidatat excepteur. Proident tempor nisi sit Lorem cillum id mollit quis irure fugiat proident dolor qui.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 5,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -154,7 +167,8 @@ module.exports = {
         Culpa anim enim aute culpa pariatur officia amet duis aute quis velit do nostrud. Ea esse id fugiat exercitation nisi excepteur ex qui sunt incididunt do esse enim. Veniam esse do elit aute duis sit voluptate nisi. Quis ut est cillum qui labore.
 
         Labore pariatur quis exercitation minim id id commodo deserunt nisi sunt. Non excepteur sit id fugiat nulla et duis consequat. Et Lorem fugiat ullamco do qui Lorem.`,
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 6,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -164,7 +178,8 @@ module.exports = {
             "Nostrud laborum eiusmod reprehenderit enim dolor consectetur ea aliquip.",
           content:
             "Ipsum pariatur duis anim officia esse Lorem ullamco cupidatat sint do.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 7,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -174,7 +189,8 @@ module.exports = {
             "Sint eiusmod id duis velit duis reprehenderit voluptate voluptate ut aliqua pariatur et.",
           content:
             "Excepteur dolore exercitation laborum ea. Deserunt voluptate laboris pariatur ipsum aliquip quis labore qui non incididunt proident. Ullamco culpa ex ipsum duis excepteur culpa aute eiusmod non eiusmod proident id consectetur. Do cillum occaecat ex pariatur minim anim ad quis laboris.",
-          geotag: "1",
+          latitude: 1.74,
+          longitude: 2.65,
           tripId: 8,
           createdAt: new Date(),
           updatedAt: new Date(),
