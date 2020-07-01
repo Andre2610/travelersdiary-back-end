@@ -25,4 +25,23 @@ router.get("/", async (req, res, next) => {
     next(e);
   }
 });
+
+// GET one trip
+router.get("/:id", async (req, res, next) => {
+  const { id } = req.params;
+  try {
+    const getSingleTrip = await Trip.findByPk(id, {
+      include: { model: Post, include: { model: Picture } },
+    });
+
+    if (!getSingleTrip) {
+      res.status(404).send("Trip not found");
+    } else {
+      res.json(getSingleTrip);
+    }
+  } catch (e) {
+    next(e);
+  }
+});
+
 module.exports = router;
