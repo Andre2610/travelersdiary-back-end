@@ -12,8 +12,8 @@ module.exports = {
             Nulla veniam labore fugiat ullamco velit aliqua adipisicing culpa exercitation dolor. Laboris pariatur 
             et labore sunt deserunt commodo eiusmod anim consequat ad ad elit. Deserunt Lorem nostrud aute Lorem. 
             Excepteur ea anim commodo nostrud officia anim laboris tempor exercitation.`,
-          latitude: 1.74,
-          longitude: 2.65,
+          latitude: 38.7223,
+          longitude: -9.1393,
           tripId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -48,8 +48,8 @@ module.exports = {
           title:
             "Nulla labore labore ea deserunt occaecat ex elit proident Lorem.",
           content: "Ea ut aliquip in est officia sunt proident aliqua.",
-          latitude: 1.74,
-          longitude: 2.65,
+          latitude: 38.5254,
+          longitude: -8.8941,
           tripId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -107,8 +107,8 @@ module.exports = {
                     Nulla veniam labore fugiat ullamco velit aliqua adipisicing culpa exercitation dolor. Laboris pariatur
                     et labore sunt deserunt commodo eiusmod anim consequat ad ad elit. Deserunt Lorem nostrud aute Lorem.
                     Excepteur ea anim commodo nostrud officia anim laboris tempor exercitation.`,
-          latitude: 1.74,
-          longitude: 2.65,
+          latitude: 38.6971,
+          longitude: -9.4223,
           tripId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
