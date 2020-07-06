@@ -56,13 +56,40 @@ router.post("/newtrip", authMiddleware, async (req, res) => {
   }
 
   try {
-    const newTrip = await Trip.create({
-      tripTitle,
-      startDate,
-      endDate,
-      userId,
-    });
+    const newTrip = await Trip.create(
+      {
+        tripTitle,
+        startDate,
+        endDate,
+        userId,
+      },
+      {
+        include: { model: Post, include: { model: Picture } },
+      }
+    );
     res.send(newTrip);
+  } catch (error) {
+    if (error.name === "SequelizeUniqueConstraintError") {
+      return res
+        .status(400)
+        .send({ message: "There is an existing account with this email" });
+    }
+
+    return res.status(400).send({ message: "Something went wrong, sorry" });
+  }
+});
+
+router.patch("/endtrip/:id", authMiddleware, async (req, res) => {
+  const { id } = req.params;
+  console.log("body.data", req.body.data);
+  try {
+    const tripToUpdate = await Trip.findByPk(id, {
+      include: { model: Post, include: { model: Picture } },
+    });
+
+    const updatedtrip = await tripToUpdate.update({ ...req.body.data });
+    console.log("updated trip", updatedtrip);
+    res.send(updatedtrip);
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
       return res
