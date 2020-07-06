@@ -101,4 +101,35 @@ router.patch("/endtrip/:id", authMiddleware, async (req, res) => {
   }
 });
 
+router.post("/newpost", authMiddleware, async (req, res) => {
+  const { title, content, tripId, latitude, longitude } = req.body;
+  if (!title || !content || !tripId) {
+    return res.status(400).send("Please fill in all the required fields");
+  }
+
+  try {
+    const newPost = await Post.create(
+      {
+        title,
+        content,
+        tripId,
+        latitude,
+        longitude,
+      },
+      {
+        include: Picture,
+      }
+    );
+    res.send(newPost);
+  } catch (error) {
+    if (error.name === "SequelizeUniqueConstraintError") {
+      return res
+        .status(400)
+        .send({ message: "There is an existing account with this email" });
+    }
+
+    return res.status(400).send({ message: "Something went wrong, sorry" });
+  }
+});
+
 module.exports = router;
