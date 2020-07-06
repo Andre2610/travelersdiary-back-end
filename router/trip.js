@@ -19,7 +19,12 @@ router.get("/", async (req, res, next) => {
     if (!allTrips) {
       res.status(404).send("User not found");
     } else {
-      res.json(allTrips);
+      const tripsWithPosts = allTrips.filter((trip) => {
+        console.log("trip data", trip);
+        return trip.posts.length > 0;
+      });
+      console.log("do i run", tripsWithPosts);
+      res.json(tripsWithPosts);
     }
   } catch (e) {
     next(e);
@@ -41,6 +46,31 @@ router.get("/:id", async (req, res, next) => {
     }
   } catch (e) {
     next(e);
+  }
+});
+
+router.post("/newtrip", authMiddleware, async (req, res) => {
+  const { tripTitle, startDate, endDate, userId } = req.body.data;
+  if (!tripTitle || !startDate || !userId) {
+    return res.status(400).send("Please fill in all the required fields");
+  }
+
+  try {
+    const newTrip = await Trip.create({
+      tripTitle,
+      startDate,
+      endDate,
+      userId,
+    });
+    res.send(newTrip);
+  } catch (error) {
+    if (error.name === "SequelizeUniqueConstraintError") {
+      return res
+        .status(400)
+        .send({ message: "There is an existing account with this email" });
+    }
+
+    return res.status(400).send({ message: "Something went wrong, sorry" });
   }
 });
 
