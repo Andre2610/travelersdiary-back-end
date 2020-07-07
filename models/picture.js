@@ -4,14 +4,14 @@ module.exports = (sequelize, DataTypes) => {
     "picture",
     {
       imageUrl: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
     },
     {}
   );
   picture.associate = function (models) {
-    // associations can be defined here
+    picture.belongsTo(models.post);
   };
   return picture;
 };
