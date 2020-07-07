@@ -1,14 +1,13 @@
 const express = require("express");
 const { Router } = express;
 const router = new Router();
-const User = require("../models").user;
+// const User = require("../models").user;
 const Trip = require("../models").trip;
 const Post = require("../models").post;
 const Picture = require("../models").picture;
-const Like = require("../models").like;
-const Comment = require("../models").comment;
+// const Like = require("../models").like;
+// const Comment = require("../models").comment;
 const authMiddleware = require("../auth/middleware");
-const bcrypt = require("bcrypt");
 
 // GET all trips
 router.get("/", async (req, res, next) => {
@@ -90,6 +89,56 @@ router.patch("/endtrip/:id", authMiddleware, async (req, res) => {
     const updatedtrip = await tripToUpdate.update({ ...req.body.data });
     console.log("updated trip", updatedtrip);
     res.send(updatedtrip);
+  } catch (error) {
+    if (error.name === "SequelizeUniqueConstraintError") {
+      return res
+        .status(400)
+        .send({ message: "There is an existing account with this email" });
+    }
+
+    return res.status(400).send({ message: "Something went wrong, sorry" });
+  }
+});
+
+router.post("/newpost", authMiddleware, async (req, res) => {
+  console.log("my req.body.data", req.body.data);
+  const {
+    title,
+    content,
+    tripId,
+    latitude,
+    longitude,
+    pictures,
+  } = req.body.data;
+  if (!title || !content || !tripId) {
+    return res.status(400).send("Please fill in all the required fields");
+  }
+
+  try {
+    const newPostBody = await Post.create({
+      title,
+      content,
+      tripId,
+      latitude,
+      longitude,
+    });
+
+    if (pictures.length > 0) {
+      const postPictures = pictures.map((picture) => {
+        console.log("whats in picture", picture);
+        return {
+          imageUrl: picture,
+          postId: newPostBody.id,
+        };
+      });
+      const createPictures = await Picture.bulkCreate(postPictures);
+      console.log("whats in createPictures", createPictures);
+    }
+    console.log("do I get here?");
+    const newPost = await Post.findByPk(newPostBody.id, { include: Picture });
+
+    console.log("my res", newPost);
+    res.send(newPost);
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
       return res
