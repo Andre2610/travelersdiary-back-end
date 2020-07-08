@@ -55,17 +55,15 @@ router.post("/newtrip", authMiddleware, async (req, res) => {
   }
 
   try {
-    const newTrip = await Trip.create(
-      {
-        tripTitle,
-        startDate,
-        endDate,
-        userId,
-      },
-      {
-        include: { model: Post, include: { model: Picture } },
-      }
-    );
+    const createNewTrip = await Trip.create({
+      tripTitle,
+      startDate,
+      endDate,
+      userId,
+    });
+    const newTrip = await Trip.findByPk(createNewTrip.id, {
+      include: { model: Post, include: { model: Picture } },
+    });
     res.send(newTrip);
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
