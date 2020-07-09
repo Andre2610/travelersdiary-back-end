@@ -1,12 +1,9 @@
 const express = require("express");
 const { Router } = express;
 const router = new Router();
-// const User = require("../models").user;
 const Trip = require("../models").trip;
 const Post = require("../models").post;
 const Picture = require("../models").picture;
-// const Like = require("../models").like;
-// const Comment = require("../models").comment;
 const authMiddleware = require("../auth/middleware");
 
 // GET all trips
@@ -19,10 +16,8 @@ router.get("/", async (req, res, next) => {
       res.status(404).send("User not found");
     } else {
       const tripsWithPosts = allTrips.filter((trip) => {
-        console.log("trip data", trip);
         return trip.posts.length > 0;
       });
-      console.log("do i run", tripsWithPosts);
       res.json(tripsWithPosts);
     }
   } catch (e) {
@@ -78,14 +73,12 @@ router.post("/newtrip", authMiddleware, async (req, res) => {
 
 router.patch("/endtrip/:id", authMiddleware, async (req, res) => {
   const { id } = req.params;
-  console.log("body.data", req.body.data);
   try {
     const tripToUpdate = await Trip.findByPk(id, {
       include: { model: Post, include: { model: Picture } },
     });
 
     const updatedtrip = await tripToUpdate.update({ ...req.body.data });
-    console.log("updated trip", updatedtrip);
     res.send(updatedtrip);
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
@@ -123,16 +116,13 @@ router.post("/newpost", authMiddleware, async (req, res) => {
 
     if (pictures.length > 0) {
       const postPictures = pictures.map((picture) => {
-        console.log("whats in picture", picture);
         return {
           imageUrl: picture,
           postId: newPostBody.id,
         };
       });
       const createPictures = await Picture.bulkCreate(postPictures);
-      console.log("whats in createPictures", createPictures);
     }
-    console.log("do I get here?");
     const newPost = await Post.findByPk(newPostBody.id, { include: Picture });
 
     console.log("my res", newPost);

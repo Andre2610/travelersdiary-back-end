@@ -4,10 +4,6 @@ const router = new Router();
 const User = require("../models").user;
 const Trip = require("../models").trip;
 const Post = require("../models").post;
-const Like = require("../models").like;
-const Comment = require("../models").comment;
-const authMiddleware = require("../auth/middleware");
-const bcrypt = require("bcrypt");
 
 // GET all users profile
 router.get("/", async (req, res, next) => {
