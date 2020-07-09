@@ -1,4 +1,7 @@
 const User = require("../models").user;
+const Trip = require("../models").trip;
+const Post = require("../models").post;
+const Picture = require("../models").picture;
 const { toData } = require("./jwt");
 
 async function auth(req, res, next) {
@@ -11,7 +14,12 @@ async function auth(req, res, next) {
       try {
         const data = toData(authHeader[1]);
         // console.log("What is in data", data);
-        const user = await User.findByPk(data.userId);
+        const user = await User.findByPk(data.userId, {
+          include: {
+            model: Trip,
+            include: { model: Post, include: { model: Picture } },
+          },
+        });
         // console.log("Who is the user", user);
         if (!user) {
           next();

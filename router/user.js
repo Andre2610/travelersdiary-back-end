@@ -4,10 +4,6 @@ const router = new Router();
 const User = require("../models").user;
 const Trip = require("../models").trip;
 const Post = require("../models").post;
-const Like = require("../models").like;
-const Comment = require("../models").comment;
-const authMiddleware = require("../auth/middleware");
-const bcrypt = require("bcrypt");
 
 // GET all users profile
 router.get("/", async (req, res, next) => {
@@ -36,10 +32,20 @@ router.get("/", async (req, res, next) => {
 router.get("/:userId", async (req, res, next) => {
   try {
     const id = parseInt(req.params.userId);
-    const getUser = await User.findByPk(id);
+    const getUser = await User.findByPk(id, {
+      include: [
+        {
+          model: Trip,
+          include: {
+            model: Post,
+          },
+        },
+      ],
+    });
     if (!getUser) {
       res.status(404).send("User not found");
     } else {
+      console.log(getUser);
       res.json(getUser);
     }
   } catch (e) {
