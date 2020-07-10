@@ -6,7 +6,7 @@ module.exports = {
       "trips",
       [
         {
-          tripTitle: "Trip 1",
+          tripTitle: "Visiting Lisbon",
           startDate: "12/03/2017",
           endDate: "13/07/2018",
           userId: 1,
@@ -14,7 +14,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          tripTitle: "Trip 2",
+          tripTitle: "Going through the Thai islands",
           startDate: "12/03/2017",
           endDate: "13/07/2018",
           userId: 2,
@@ -22,7 +22,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          tripTitle: "Trip 3",
+          tripTitle: "Freezing in Iceland",
           startDate: "12/03/2017",
           endDate: "13/07/2018",
           userId: 3,
@@ -30,7 +30,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          tripTitle: "Trip 4",
+          tripTitle: "US east coast, kinda of",
           startDate: "12/03/2017",
           endDate: "13/07/2018",
           userId: 4,
@@ -38,7 +38,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          tripTitle: "Trip 5",
+          tripTitle: "God save the queen",
           startDate: "12/03/2017",
           endDate: "13/07/2018",
           userId: 5,
@@ -46,7 +46,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          tripTitle: "Trip 6",
+          tripTitle: "I like to move it move it",
           startDate: "12/03/2017",
           endDate: "13/07/2018",
           userId: 1,
@@ -54,17 +54,17 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          tripTitle: "Trip 7",
+          tripTitle: "Sambaaa de Janeiro",
           startDate: "12/03/2017",
           endDate: "13/07/2018",
-          userId: 1,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          tripTitle: "Trip 8",
-          startDate: "12/03/2017",
           userId: 4,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          tripTitle: "Exploring the nether region",
+          startDate: "12/03/2017",
+          userId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
