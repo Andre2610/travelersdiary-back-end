@@ -288,18 +288,11 @@ module.exports = {
         },
         {
           // 25
-          title: "Massive POST!",
+          title: "Elit duis tristique sollicitudin nibh.",
           content: `Eget gravida cum sociis natoque penatibus. Amet est placerat in egestas erat imperdiet sed euismod nisi. Urna cursus eget nunc scelerisque viverra mauris in aliquam. Ac odio tempor orci dapibus ultrices in iaculis nunc. Diam maecenas ultricies mi eget mauris pharetra et ultrices. Maecenas accumsan lacus vel facilisis volutpat est. 
           Erat nam at lectus urna duis convallis convallis. Ultrices eros in cursus turpis. Convallis convallis tellus id interdum velit laoreet id. Sed augue lacus viverra vitae congue eu. Morbi quis commodo odio aenean sed adipiscing diam. Tortor aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Phasellus vestibulum lorem sed risus ultricies. 
           Eget arcu dictum varius duis at. Id diam vel quam elementum pulvinar etiam non. 
-          Dolor sit amet consectetur adipiscing elit duis tristique sollicitudin nibh. 
-          Pharetra pharetra massa massa ultricies mi quis. Ut placerat orci nulla pellentesque dignissim enim sit. Tellus in metus vulputate eu scelerisque felis imperdiet proin.
-          In fermentum posuere urna nec. Nisl rhoncus mattis rhoncus urna neque viverra justo. Dictum at tempor commodo ullamcorper a lacus vestibulum. In fermentum posuere urna nec tincidunt praesent. 
-          Pretium fusce id velit ut tortor pretium. Eget egestas purus viverra accumsan in nisl nisi scelerisque eu. Convallis convallis tellus id interdum velit laoreet id. Id venenatis a condimentum vitae sapien pellentesque habitant morbi tristique. 
-          Ut tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Lobortis elementum nibh tellus molestie nunc non blandit massa enim. Sed faucibus turpis in eu. Nec dui nunc mattis enim ut tellus elementum sagittis vitae. Rutrum tellus pellentesque eu tincidunt tortor aliquam nulla facilisi. Eget dolor morbi non arcu risus quis. 
-          Natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. 
-          Fames ac turpis egestas maecenas pharetra convallis posuere. Sollicitudin nibh sit amet commodo nulla facilisi nullam vehicula ipsum. Habitant morbi tristique senectus et netus et malesuada fames ac. Magna fermentum iaculis eu non. 
-          Tristique senectus et netus et malesuada.`,
+          Dolor sit amet consectetur adipiscing elit duis tristique sollicitudin nibh.`,
           latitude: -22.898948,
           longitude: -43.122168,
           tripId: 7,
