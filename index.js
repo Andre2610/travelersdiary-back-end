@@ -5,10 +5,9 @@ const authRouter = require("./router/auth");
 const tripRouter = require("./router/trip");
 // const categoryRouter = require("./router/category");
 // const ordersRouter = require("./router/order");
-const authMiddleware = require("./auth/middleware");
 const cors = require("cors");
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const jsonParser = express.json();
 const fileupload = require("express-fileupload");
 
