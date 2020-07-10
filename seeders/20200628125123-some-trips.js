@@ -62,7 +62,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          tripTitle: "Trip 8n",
+          tripTitle: "Trip 8",
           startDate: "12/03/2017",
           userId: 4,
           createdAt: new Date(),
