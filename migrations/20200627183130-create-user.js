@@ -31,6 +31,10 @@ module.exports = {
       about: {
         type: Sequelize.TEXT,
       },
+      verified: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
