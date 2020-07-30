@@ -1,8 +1,15 @@
 const { Router } = require("express");
-const { toJWT } = require("../auth/jwt");
+const { toJWT, emailToken, validatingEmail } = require("../auth/jwt");
 const authMiddleware = require("../auth/middleware");
 const bcrypt = require("bcrypt");
-const { SALT_ROUNDS } = require("../config/constants");
+const {
+  SALT_ROUNDS,
+  BACKEND_API,
+  API_URL,
+  AUTH_USER,
+  AUTH_PASS,
+} = require("../config/constants");
+const nodemailer = require("nodemailer");
 const User = require("../models").user;
 const Trip = require("../models").trip;
 const Post = require("../models").post;
@@ -25,12 +32,52 @@ router.post("/signup", async (req, res) => {
       password: bcrypt.hashSync(password, SALT_ROUNDS),
       title,
       about,
+      verified: false,
     });
-    delete newUser.dataValues["password"]; // don't send back the password hash
 
-    const token = toJWT({ userId: newUser.id });
+    const eToken = emailToken({ id: newUser.id });
+    // created encrypted email link
+    const url = `${BACKEND_API}/auth/confirmation/${eToken}`;
 
-    res.status(201).json({ token, ...newUser.dataValues });
+    const transporter = nodemailer.createTransport({
+      service: "outlook",
+      auth: {
+        user: `${AUTH_USER}`,
+        pass: `${AUTH_PASS}`,
+      },
+    });
+
+    const confirmationEmailTemplate = {
+      from: `${AUTH_USER}`, // sender address
+      to: `${email}`, // list of receivers
+      subject: `Hello, ${firstName}`, // Subject line
+      text: `Thank you for registering an account with space travel agency. 
+      Please confirm your email by clicking the following link:${url}`, // plain text body
+      html: `      
+      <div 
+        style=
+        padding: 5px 5px 5px 5px;
+        line-spacing: 2rem;
+        border="0";
+        width="600";
+      >
+        <h2>Dear ${firstName}, thank you for joining the Traveler's Diary community!</h2>
+        <h3>IMPORTANT:</h3>
+        <p>Please confirm your email by clicking the following link:<a href=${url}>${url}</a></p>
+      </div>
+
+      `, // html body
+    };
+
+    transporter.sendMail(confirmationEmailTemplate, function (err, data) {
+      if (err) {
+        console.log("Error Occurs", err);
+      } else {
+        console.log("Email sent!!!");
+      }
+    });
+
+    res.status(201).json(newUser);
   } catch (error) {
     if (error.name === "SequelizeUniqueConstraintError") {
       return res
@@ -64,7 +111,12 @@ router.post("/login", async (req, res, next) => {
         message: "User with that email not found or password incorrect",
       });
     }
-
+    if (!user.verified) {
+      return res.status(403).send({
+        message:
+          "You must verify your account before logging in. Please check your email.",
+      });
+    }
     delete user.dataValues["password"]; // don't send back the password hash
     const token = toJWT({ userId: user.id });
     res.send({ token, ...user.dataValues });
@@ -77,6 +129,21 @@ router.get("/me", authMiddleware, async (req, res) => {
   // don't send back the password hash
   delete req.user.dataValues["password"];
   res.status(200).send({ ...req.user.dataValues });
+});
+
+router.get("/confirmation/:token", async (req, res) => {
+  try {
+    const { id } = validatingEmail(req.params.token);
+    const updatedUser = await User.update(
+      { verified: true },
+      { where: { id } }
+    );
+    console.log("final user", updatedUser);
+  } catch (e) {
+    res.send("error");
+  }
+
+  return res.redirect(API_URL);
 });
 
 module.exports = router;
