@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const {
   SALT_ROUNDS,
   BACKEND_API,
+  API_URL,
   AUTH_USER,
   AUTH_PASS,
 } = require("../config/constants");
@@ -110,7 +111,12 @@ router.post("/login", async (req, res, next) => {
         message: "User with that email not found or password incorrect",
       });
     }
-
+    if (!user.verified) {
+      return res.status(403).send({
+        message:
+          "You must verify your account before logging in. Please check your email.",
+      });
+    }
     delete user.dataValues["password"]; // don't send back the password hash
     const token = toJWT({ userId: user.id });
     res.send({ token, ...user.dataValues });
@@ -123,6 +129,21 @@ router.get("/me", authMiddleware, async (req, res) => {
   // don't send back the password hash
   delete req.user.dataValues["password"];
   res.status(200).send({ ...req.user.dataValues });
+});
+
+router.get("/confirmation/:token", async (req, res) => {
+  try {
+    const { id } = validatingEmail(req.params.token);
+    const updatedUser = await User.update(
+      { verified: true },
+      { where: { id } }
+    );
+    console.log("final user", updatedUser);
+  } catch (e) {
+    res.send("error");
+  }
+
+  return res.redirect(API_URL);
 });
 
 module.exports = router;
