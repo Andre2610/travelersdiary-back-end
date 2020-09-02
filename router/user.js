@@ -53,6 +53,7 @@ router.get("/:userId", async (req, res, next) => {
   }
 });
 // PATCH edit user profile
+// add middleware
 router.patch("/:userId", async (req, res, next) => {
   try {
     const id = parseInt(req.params.userId);
@@ -70,6 +71,7 @@ router.patch("/:userId", async (req, res, next) => {
 });
 
 // DELETE a user
+// add middleware
 router.delete("/:userId", async (req, res, next) => {
   try {
     const id = parseInt(req.params.userId);
