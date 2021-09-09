@@ -16,6 +16,7 @@ module.exports = {
           about: `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
             It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
              It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`,
+          verified: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -28,6 +29,7 @@ module.exports = {
           about: `Posuere morbi leo urna molestie at elementum. Gravida cum sociis natoque penatibus et. 
           Non tellus orci ac auctor augue. Pharetra diam sit amet nisl suscipit adipiscing bibendum. 
           Ante metus dictum at tempor commodo ullamcorper a lacus vestibulum.`,
+          verified: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -39,6 +41,7 @@ module.exports = {
           title: "Road to nowhere",
           about:
             "Diam donec adipiscing tristique risus nec feugiat in. Cras ornare arcu dui vivamus arcu.",
+          verified: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -49,6 +52,7 @@ module.exports = {
           password: bcrypt.hashSync("123", SALT_ROUNDS),
           title: "A lacus vestibulum sed arcu non.",
           about: "Nunc consequat interdum varius sit amet mattis vulputate.",
+          verified: false,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -59,6 +63,7 @@ module.exports = {
           password: bcrypt.hashSync("123", SALT_ROUNDS),
           title: "Say What again *******",
           about: "Mayo on fries?",
+          verified: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
