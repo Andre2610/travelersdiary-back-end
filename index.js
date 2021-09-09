@@ -9,9 +9,7 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 5000;
 const jsonParser = express.json();
-const fileupload = require("express-fileupload");
 
-app.use(fileupload({ useTempFiles: true }));
 app.use(cors());
 app.use(jsonParser);
 app.use("/auth", authRouter);
